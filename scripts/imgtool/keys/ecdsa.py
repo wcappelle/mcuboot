@@ -210,6 +210,12 @@ class ECDSA256P1(ECDSA256P1Public, ECDSAPrivateKey):
         else:
             return sig
 
+    def get_private_bytes(self, minimal, format):
+        return ECDSAPrivateKey.get_private_bytes(self, minimal, format)
+
+    def export_private(self, path, passwd=None):
+        return ECDSAPrivateKey.export_private(self, path, passwd)
+
 
 class ECDSA384P1Public(ECDSAPublicKey):
     """
@@ -284,3 +290,9 @@ class ECDSA384P1(ECDSA384P1Public, ECDSAPrivateKey):
             return sig
         else:
             return sig
+    
+    def get_private_bytes(self, minimal, format):
+        return ECDSAPrivateKey.get_private_bytes(self, minimal, format)
+
+    def export_private(self, path, passwd=None):
+        return ECDSAPrivateKey.export_private(self, path, passwd)
